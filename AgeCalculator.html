@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        font-family: sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input {
+        width: 95%;
+        padding: 8px;
+        margin-bottom: 15px;
+        background: scroll;
+        cursor: pointer;
+
+    }
+
+    
+
+    button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    p {
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Age_Calculator</h1>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+        <button onclick="calculateAge()">Calculate Age</button>
+        <p id="result"></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function calculateAge() {
+            var dobInput = document.getElementById('dob').value;
+            var dob = new Date(dobInput);
+            var today = new Date();
+
+            var age = today.getFullYear() - dob.getFullYear();
+
+            // Adjust age if birthday hasn't occurred yet this year
+            if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = 'Your age is: ' + age + ' years';
+        }
+
+    </script>
+</body>
+
+</html>
